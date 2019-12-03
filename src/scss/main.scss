@@ -1,0 +1,697 @@
+// Colors
+$primary: #d1661a;
+$secondary: #38b54a;
+$success: #3adb76;
+$warning: #ffae00;
+$alert: #cc4b37;
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #2d2d2d;
+$emperor: #777777;
+$black: #0a0a0a;
+$white: #fefefe;
+$off-white: #f8f8f8;
+
+body, html { overflow-x:hidden;}
+
+h1, h2, h3, h4, h5, h6, p {color: $emperor;}
+
+body {
+    background: $off-white;
+    color: $emperor;
+}
+
+#slider {
+  img {padding: 50px 10px;}
+	.caption {
+    p {font-size: 1.2rem;line-height: 1.25;}
+    .button {border-radius: 3px;}
+  }
+}
+
+.frame-content {
+  .bg-grey {background: $light-gray;}
+  .bg-off-white{background: $off-white;}
+  .pad {padding: 10px;}
+  img {max-width: 100%; border-radius: 5px;}
+  .button {padding: 5px 8px;}
+}
+
+#bg-grey {background: $light-gray;}
+#bg-primary {background: $primary; h2, p {color: $white;}}
+#bg-off-white{background: $off-white;}
+
+.grid-container {max-width: 70rem;}
+.pad {padding: 30px 0;}
+.card {border: 0; padding: 20px; border-radius: 5px; box-shadow: 1px 1px 10px 1px rgba(0,0,0,.21);}
+a {color: $primary;}
+a:hover {color: darken($primary, 10%);}
+.button, button {background: $primary; border-radius: 4px; color: $white;}
+.button:hover, button:hover {background: darken($primary, 10%);}
+.primary {color: $primary;}
+p {font-size: 16px;}
+
+.title-bar {
+	background: $off-white;
+	.menu-icon::after {background: $primary; box-shadow: 0 7px 0 $primary, 0 14px 0 $primary;}
+}
+
+#side_menu {
+  padding: 0;
+  h6.title{background: $secondary; padding: 6px; color: $white;}
+  hr:last-of-type {border: 0;}
+  font-size: 14px;
+}
+
+#media-block {
+  img {border-radius: 8px;}
+}
+
+#gallery, #events, #grid {
+  .center-cropped {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+}
+
+#events {
+  p {margin-bottom: 4px;}
+}
+
+#icons {
+  a p {color: $emperor; font-size: 15px;}
+  h5 {color: $emperor;}
+}
+
+footer {
+  width: 100%;
+  background-color: $primary;
+
+  h5 {color: white;}
+  padding: 20px 0;
+  ul {margin-left: 0;}
+  .menu.vertical {display: none;}
+  p, li {color: $white; margin-bottom: 0; font-size: 14px;}
+  li {list-style: none;}
+  a, a:hover {color: $white;}
+  .seperator {padding: 0 8px;}
+  #sitemap {li {padding: 6px 0;}}
+  i.fa-2x {font-size: 30px; margin-right: 8px;}
+}
+
+.scrollup {
+  background: $primary;
+  padding: 6px;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index:99999;
+}
+
+// BUILDING BLOCKS
+
+$hero-height: 40vh;
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  height: $hero-height;
+  background-attachment: fixed;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-section-text {
+    h1, h3, p, i {color: $white;}
+    h1 {background: $primary; border-radius: 5px; padding: 5px 10px; text-shadow: 1px 1px 2px $black; font-weight: 600;}
+    h3 {background: $primary; border-radius: 5px; padding: 5px;}
+  }
+
+  @media screen and (max-width: 39.9375em) {
+    background-attachment: unset;
+  }
+}
+
+#homepage .hero-section {
+   height: 50vh;
+   h3 {background: transparent;}
+}
+
+$article-title-case: uppercase;
+
+.simple-article-header {
+  background: $white;
+  border-radius: 5px;
+  padding: 1.3rem 2rem .7rem;
+  border: 1px solid $medium-gray;
+  border-bottom:0;
+  .article-date-read {
+    color: $dark-gray;
+  }
+
+  .article-title {
+    text-transform: $article-title-case;
+    a {
+      color: $black;
+
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+    }
+  }
+
+  .article-author-comments {
+    a.article-comments {
+      color: $dark-gray;
+
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+    }
+  }
+
+  .article-date-read,
+  .article-title,
+  .article-author-comments,
+  .article-social,
+  .article-post-image,
+  .article-post-content {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.article-post-content {
+  background: $white;
+  border: 1px solid $medium-gray;
+  border-top: 0;
+  padding: 0 35px;
+  margin-bottom: 1rem;
+  .card {
+    padding: 15px;
+    img {border-radius: 5px;}
+    h6 {color: $emperor;}
+    p {color: $emperor; font-size: 14px;}
+  }
+}
+
+// SOCIAL BAR
+
+$social-button-size: 1.8rem;
+$social-button-border-width: 0.125rem;
+$social-button-font-size: 1rem;
+$social-button-line-height: 1.6em;
+$social-button-border-radius: 1.6875rem;
+$social-button-transition: all 0.5s ease;
+$social-button-margin: 0.25rem;
+
+$social-brand-facebook: #3b5998;
+$social-brand-twitter: #55acee;
+$social-brand-whatsapp: #43d854;
+$social-brand-linkedin: #007bb5;
+$social-brand-mail: #555;
+$social-brand-print: #777;
+
+@mixin social-button($brand-color, $brand-icon) {
+  background: $brand-color;
+
+  &:before {
+    font-family: "FontAwesome";
+  }
+}
+
+.rounded-social-buttons {
+  padding: 10px 0;
+
+  .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: $social-button-size;
+    height: $social-button-size;
+    border: $social-button-border-width solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: $white;
+    font-size: $social-button-font-size;
+    font-weight: normal;
+    line-height: $social-button-line-height;
+    border-radius: $social-button-border-radius;
+    transition: $social-button-transition;
+    margin-right: $social-button-margin;
+    margin-bottom: $social-button-margin;
+
+    &.facebook {
+      background: $social-brand-facebook;
+    }
+
+    &.twitter {
+      background: $social-brand-twitter;
+    }
+
+    &.linkedin {
+      background: $social-brand-linkedin;
+    }
+
+    &.whatsapp {
+      background: $social-brand-whatsapp;
+    }
+
+    &.mail {
+      background: $social-brand-mail;
+    }
+
+    &:hover,
+    &:focus {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// END SOCIAL BAR
+
+
+
+
+// TOPBAR
+
+$topbar-responsive-bg: $primary;
+$topbar-responsive-animation-type: fade-in; // or use slide-down or none
+
+.topbar-responsive {
+  background: $topbar-responsive-bg;
+  padding: 1rem;
+
+  .topbar-responsive-logo {
+    color: $white;
+    vertical-align: middle;
+  }
+
+  .menu {
+    background: $topbar-responsive-bg;
+
+    li:last-of-type {
+      margin-right: 0;
+    }
+
+    a {
+      color: $white;
+      transition: color 0.15s ease-in;
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        padding: 0.875rem 0;
+      }
+    }
+
+    .topbar-responsive-button {
+      color: $white;
+      border-color: $white;
+      border-radius: 5000px;
+      transition: color 0.15s ease-in, border-color 0.15s ease-in;
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+        border-color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        width: 100%;
+        margin: 0.875rem 0;
+      }
+    }
+  }
+
+   @media screen and (max-width: 39.9375em) {
+     padding: 0.75rem;
+
+    .top-bar-title {
+      position: relative;
+      width: 100%;
+
+      span {
+        position: absolute;
+        right: 0;
+        border: 1px solid $white;
+        border-radius: 5px;
+        padding: 0.25rem 0.45rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .menu-icon {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity:0;
+  } to {
+    opacity:1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.dropdown.menu {
+  li.is-active > a {color: $white;}
+  li > a {
+    padding: .5rem 1rem;
+    font-size: 14px;
+  }
+  .is-dropdown-submenu > li a {padding: .8rem;}
+}
+.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after,
+.drilldown .is-drilldown-submenu-parent > a::after {border: none;}
+.dropdown.menu.medium-horizontal > li.opens-right > .is-dropdown-submenu {
+  z-index: 99999;
+  border: 0;
+  border-radius: 5px;
+  background: darken($primary, 10%);
+}
+
+.drilldown {
+  a {background: transparent;}
+}
+
+.menu.simple {
+  -webkit-box-align: left !important;
+  -webkit-align-items: left !important;
+  -ms-flex-align: left !important;
+  align-items: left !important;
+
+  li + li {margin: 0;}
+}
+
+@media screen and (max-width: 39.9375em) {
+  #topbar-responsive {width: 100%;}
+}
+
+// END TOPBAR
+
+$color_high: $primary !default;     // highlight colour
+$color_gray: #ccc !default;        // neutral colour
+$controls_size: 2.8em !default;    // size of the next/ prev buttons
+$pager_size: 1.2em !default;       // size of the pager bubbles
+$trans_ease: ease !default;        // easing for the transitions
+$mobile_break: 600px !default;     // breakpoint to use some special mobile styling
+$spinner_url: '../img/slippry/sy-loader.gif' !default;
+$arrows_url: '../img/slippry/arrows.svg' !default;
+
+@mixin animation ($animation) {
+  animation-name: $animation;
+  animation-fill-mode: forwards;
+}
+
+/* kenBurns animations, very basic */
+@keyframes left-right {
+  0% {
+    transform: translateY(-20%) translateX(-10%);
+  }
+  100% {
+    transform: translateY(0%) translateX(10%);
+  }
+}
+@keyframes right-left {
+  0% {
+    transform: translateY(0%) translateX(10%);
+  }
+  100% {
+    transform: translateY(-20%) translateX(-10%);
+  }
+}
+
+/* added to the original element calling slippry */
+.sy-box {
+  &.sy-loading {
+    .sy-slides-wrap, .sy-pager {
+      visibility: hidden;
+    }
+    background: url($spinner_url) 50% 50% no-repeat;
+    background-size: 32px;
+    min-height: 40px;
+  }
+}
+/* element that wraps the slides */
+.sy-slides-wrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  &:hover {
+    .sy-controls {
+      display: block;
+    }
+  }
+}
+/* element that crops the visible area to the slides */
+.sy-slides-crop {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+/* list containing the slides */
+.sy-list {
+  &.horizontal {
+    transition: left $trans_ease;
+  }
+  &.vertical {
+    transition: top $trans_ease;
+  }
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+/* single slide */
+.sy-slide {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  &.kenburns {
+    width: 140%;
+    left: -20%;
+    &.useCSS {
+      &.sy-ken {
+        &:nth-child(1n) {
+          @include animation(left-right);
+        }
+        &:nth-child(2n) {
+          @include animation(right-left);
+        }
+      }
+      transition-property: opacity;
+    }
+  }
+  &.sy-active {
+    z-index: 3;
+  }
+  > img { // with one image as content -> full size
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+  > a { // styling for link on whole slide
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    > img { // with one image as content -> full size
+      margin: 0;
+      padding: 0;
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+  }
+}
+/* next/ prev buttons, with arrows and clickable area a lot larger than the visible buttons */
+.sy-controls {
+  display: none;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  li {
+    position: absolute;
+    width: 10%;
+    min-width: $controls_size * 1.5;
+    height: 100%;
+    z-index: 33;
+    &.sy-prev {
+      left: 0;
+      top: 0;
+      a {
+        &:after {
+          background-position: -5% 0;
+        }
+      }
+    }
+    &.sy-next {
+      right: 0;
+      top: 0;
+      a {
+        &:after {
+          background-position: 105% 0;
+        }
+      }
+    }
+    a {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-indent: -9999px;
+      &:link, &:visited {
+        opacity: 0.4;
+      }
+      &:hover, &:focus {
+        opacity: 0.8;
+        outline: none;
+      }
+      &:after {
+        content: "";
+        background-image: url($arrows_url);
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        text-indent: 0;
+        line-height: $controls_size;
+        color: #111;
+        font-weight: 800;
+        position: absolute;
+        background-color: #fff;
+        width: $controls_size;
+        height: $controls_size;
+        left: 50%;
+        top: 50%;
+        margin-top: -$controls_size / 2;
+        margin-left: -$controls_size / 2;
+        border-radius: 50%;
+      }
+    }
+  }
+  @media only screen and (max-device-width : $mobile_break) {
+    display: block;
+    $controls_size: $controls_size / 2;
+    li {
+      min-width: $controls_size * 1.5;
+      a {
+        &:after {
+          width: $controls_size;
+          height: $controls_size;
+          margin-top: -$controls_size / 2;
+          margin-left: -$controls_size / 2;
+        }
+      }
+    }
+  }
+}
+/* captions, styled fo the overlay variant */
+.sy-caption-wrap {
+  position: absolute;
+  bottom: 2em;
+  z-index: 12;
+  left: 50%;
+  .sy-caption {
+    position: relative;
+    left: -50%;
+    background-color: rgba(0,0,0,0.54);
+    color: #fff;
+    padding: 0.4em 1em;
+    border-radius: 1.2em;
+    a {
+      &:link, &:visited {
+        color: $color_high;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media only screen and (max-device-width : $mobile_break), screen and (max-width : $mobile_break) {
+    left: 0;
+    bottom: 0.4em;
+    .sy-caption {
+      left: 0;
+      padding: 0.2em 0.4em;
+      font-size: 0.92em;
+      border-radius: 0;
+    }
+  }
+}
+/* pager bubbles */
+.sy-pager {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin: 1em 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    display: inline-block;
+    width: $pager_size;
+    height: $pager_size;
+    margin: 0 1em 0 0;
+    border-radius: 50%;
+    &.sy-active {
+      a {
+        background-color: $color_high;
+      }
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: $color_gray;
+      text-indent: -9999px;
+      &:link, &:visited {
+        opacity: 1.0;
+      }
+      &:hover, &:focus {
+        opacity: 0.6;
+      }
+      background-size: 2em;
+      border-radius: 50%;
+    }
+  }
+}
+/* element to "keep/ fill" the space of the content, gets intrinsic height via js */
+.sy-filler {
+  width: 100%;
+  &.ready {
+    transition: padding 600ms ease;
+  }
+}

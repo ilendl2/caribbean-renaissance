@@ -1,17 +1,97 @@
 <!doctype html>
-<html lang="{{ $.Site.Language.Lang }}">
-  {{ partial "head" . }}
-  <body class="sans-serif">
+<html class="no-js" lang="{{ $.Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico"/>
+    <title>{{ .Title }} | {{ $.Site.Title }}</title>
 
-    {{ block "header" . }}{{ partial "nav" . }}{{end}}
+    {{ partial "head.html" . }}
+
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css" />
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation.min.css">
+
+    {{ $stylesheet := .Site.Data.webpack.main }}
+    {{ with $stylesheet.css }}
+      <link href="{{ relURL . }}" rel="stylesheet">
+    {{ end }}
+
+    {{ if .IsHome }}
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    {{ end }}
+  </head>
+
+  <body>
+
+    {{ partial "topbar.html" . }}
 
     {{ block "main" . }}{{ end }}
 
-    {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+    {{ partial "footer.html" . }}
+
+    <a href="#" class="scrollup"><img src="/img/top.png" width="30"></i></a>
 
     {{ $script := .Site.Data.webpack.main }}
     {{ with $script.js }}
       <script src="{{ relURL . }}"></script>
     {{ end }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+    <script>
+			$(document).foundation();
+		</script>
+    <script>
+      $(document).ready(function(){
+       $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+          } else {
+            $('.scrollup').fadeOut();
+          }
+        });
+
+        $('.scrollup').click(function () {
+          $("html, body").animate({
+            scrollTop: 0
+          }, 600);
+          return false;
+        });
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.js"></script>
+    <script>
+      $("#slider").vegas({
+          slides: [
+            {src: "img/slider/crf_banner_01.jpg" },
+            {src: "img/slider/crf_banner_02.jpg" },
+            {src: "img/slider/crf_banner_03.jpg" },
+            {src: "img/slider/crf_banner_04.jpg" },
+            {src: "img/slider/crf_banner_05.jpg" },
+            {src: "img/slider/crf_banner_06.jpg" },
+            {src: "img/slider/crf_banner_07.jpg" },
+            {src: "img/slider/crf_banner_08.jpg" },
+            {src: "img/slider/crf_banner_09.jpg" },
+          ],
+          overlay: 'https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/overlays/03.png',
+          delay: 10000,
+          transition: 'fade',
+          animation: 'random',
+          shuffle: true
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

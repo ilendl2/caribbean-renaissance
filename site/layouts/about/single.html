@@ -1,0 +1,46 @@
+{{ define "main" }}
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x grid-padding-y">
+      <div class="medium-9 cell">
+        {{ partial "article-header" .Params }}
+
+        <div class="article-post-content">
+          {{ .Content }}
+
+          {{ if .Params.block }}
+            <div class="grid-container">
+              <h3>Lay Leadership</h3>
+              <div class="grid-x grid-padding-x grid-padding-y medium-up-2">
+                {{ range .Params.block }}
+                  <div class="cell text-center">
+                    <div class="card" style="padding: 10px;">
+                      <h5>{{.name}}</h5>
+                      <h6>{{.roll}}</h6>
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+      <div id="sidebar" class="hide-for-print hide-for-small-only medium-3 cell">
+        <div class="row hide-for-print">
+          <div id="side_menu" class="card">
+            <center><h6 class="title" ><strong>Also In This Section</strong></h6></center>
+            <ul class="menu vertical">
+              <li><a href="/about/about-us/">About Us</a></li>
+              <li><a href="/about/clergy">Clergy</a></li>
+            	<li><a href="/about/lay-leadership-staff">Lay Leadership and Staff</a></li>
+            	<li><a href="/about/vestry">The Vestry</a></li>
+            	<li><a href="/about/parish-hall">Parish Hall</a></li>
+            	<li><a href="/about/good-shepherd-anglican-chruch">Good Shepherd Church</a></li>
+            	<li><a href="/about/st-oswalds">St. Oswald's Caroni</a></li>
+            	<li><a href="/about/good-shepherd-anglican-school">Good Shepherd School</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

@@ -1,9 +1,22 @@
 baseurl = "/"
 languageCode = "en-us"
-languageLang = "en"
-title = "Homepage"
+title = "Caribbean Renaissance Foundation"
+buildFuture = true
+[params]
+  site_name = "Caribbean Renaissance Foundation"
+  site_url = "https://crf.netlify.com"
+  description = "CRF is an innovative strategic engine creating the platform for the advancement of knowledge, cultural revitalization and the re-engineering of the Caribbean identity or the Caribbean self."
+  address= "#5 First Avenue"
+  city = "Cascade"
+  country = "Trinidad"
+  facebook = "https://www.facebook.com/David-Boothman-220415181315919/"
+  instagram = "https://instagram.com/davidboothman"
+  email = "support@caribbean-renaissance.org"
+  tel = "+1 (868) 468-8684"
+  fbapp_id = "1915989002029864"
+  google_analytics_id = "UA-121906344-1"
 
 # RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
+# See configuration options for more details:
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
